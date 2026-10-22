@@ -1,0 +1,56 @@
+const task = (
+  id,
+  name,
+  description,
+  status,
+  priority,
+  assignee,
+  category,
+  dueDate,
+  estimateHours,
+  notes
+) => {
+  const createdAt = `2026-09-${String(1 + (id % 28)).padStart(2, "0")}T09:00:00.000Z`;
+  return {
+    id,
+    name,
+    description,
+    status,
+    priority,
+    assignee,
+    category,
+    dueDate,
+    estimateHours,
+    notes,
+    createdAt,
+    updatedAt: createdAt,
+    completedAt: status === "done" ? createdAt : null,
+  };
+};
+
+export const initialData = [
+  task(1, "Design login screen", "Mockups for sign-in and sign-up pages.", "done", "high", "Aisha", "Design", "2026-09-20", 6, "Approved by the team. Use the new color palette."),
+  task(2, "Set up CI pipeline", "Run lint and tests on every pull request.", "in_progress", "high", "Marat", "DevOps", "2026-10-28", 8, "Lint already works, tests are still missing in the workflow."),
+  task(3, "Fix pagination bug", "Last page shows an empty list after deleting items.", "todo", "medium", "Dana", "Frontend", "2026-10-25", 3, "Reproduce: delete the only item on the last page."),
+  task(4, "Write API documentation", "Describe all endpoints with request and response examples.", "todo", "medium", "Alina", "Docs", "2026-11-02", 5, "Use the same format as the previous project."),
+  task(5, "Add form validation", "Validate name, email and phone fields on the client.", "in_progress", "high", "Timur", "Frontend", "2026-10-26", 4, "Show errors under the fields, not in alerts."),
+  task(6, "Optimize image loading", "Lazy loading and correct image sizes for cards.", "todo", "low", "Dana", "Frontend", "2026-11-10", 2, "Check the Lighthouse score before and after."),
+  task(7, "Create database schema", "Tables for users, projects and tasks.", "done", "high", "Ruslan", "Backend", "2026-09-18", 7, "Migration scripts are in the repository."),
+  task(8, "Implement search endpoint", "Search by name and description with pagination.", "in_progress", "medium", "Ruslan", "Backend", "2026-10-30", 6, "Add an index on the name column."),
+  task(9, "Accessibility review", "Check keyboard navigation and screen reader labels.", "todo", "medium", "Zhanna", "QA", "2026-11-05", 4, "Use the axe browser extension."),
+  task(10, "Write unit tests for utils", "Cover date and string helpers.", "done", "low", "Nurlan", "QA", "2026-09-30", 3, "Coverage is 92%."),
+  task(11, "Prepare release notes", "List new features and fixed bugs for version 1.2.", "todo", "low", "Alina", "Docs", "2026-11-12", 2, "Wait until all pull requests are merged."),
+  task(12, "Update color palette", "Replace old brand colors in the UI kit.", "done", "medium", "Aisha", "Design", "2026-09-25", 5, "Contrast ratios checked."),
+  task(13, "Refactor auth middleware", "Split token checks and role checks.", "in_progress", "high", "Marat", "Backend", "2026-10-29", 9, "Keep the old behavior for expired tokens."),
+  task(14, "Add dark mode", "Theme switcher with saved preference.", "todo", "low", "Timur", "Frontend", "2026-11-15", 6, "Respect prefers-color-scheme by default."),
+  task(15, "Set up error monitoring", "Send frontend errors to the monitoring service.", "todo", "high", "Marat", "DevOps", "2026-11-01", 4, "Do not send personal data."),
+  task(16, "Cross-browser testing", "Check Chrome, Firefox and Safari.", "in_progress", "medium", "Zhanna", "QA", "2026-10-31", 5, "Safari date input looks different."),
+  task(17, "Design empty states", "Illustrations and texts for empty lists.", "todo", "low", "Aisha", "Design", "2026-11-08", 3, "Keep the texts short and friendly."),
+  task(18, "Add rate limiting", "Limit requests per minute for public endpoints.", "todo", "high", "Ruslan", "Backend", "2026-11-03", 5, "Return 429 with a Retry-After header."),
+  task(19, "Onboarding guide", "How to run the project in 10 minutes.", "done", "medium", "Alina", "Docs", "2026-09-28", 4, "Reviewed by two new teammates."),
+  task(20, "Migrate to Vite", "Replace the old bundler config.", "done", "medium", "Dana", "Frontend", "2026-09-22", 6, "Build time went from 40s to 6s."),
+  task(21, "Load testing", "Check 500 users at the same time.", "todo", "medium", "Nurlan", "QA", "2026-11-14", 6, "Use a staging server only."),
+  task(22, "Create app icons", "Icons for web and mobile home screens.", "in_progress", "low", "Aisha", "Design", "2026-10-27", 3, "Sizes: 192 and 512 pixels."),
+  task(23, "Configure staging deploy", "Automatic deploy of the main branch to staging.", "in_progress", "high", "Marat", "DevOps", "2026-10-30", 7, "Secrets are stored in the CI settings."),
+  task(24, "Review pull requests backlog", "Review and merge old pull requests.", "todo", "medium", "Timur", "Frontend", "2026-10-24", 4, "Close the ones older than a month."),
+];
